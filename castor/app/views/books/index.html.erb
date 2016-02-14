@@ -1,0 +1,26 @@
+# app/views/books/index.html.erb
+<h1>Liste des livres</h1>
+<% @books.each do |book| %>
+  <p>
+    <a href="/books/<%= book.id %>">
+      <% if book.category %>
+        <%= book.title %> (<%= book.category.name %>)
+      <% else %>
+        <%= book.title %>
+      <% end %>
+    </a>
+  </p>
+<% end %>
+
+<h1>Liste des livres</h1>
+<%= exemple %>
+<% @books.each do |book| %>
+    <p><a href="/books/<%= book.id %>"><%= book.title %></a></p>
+<% end %>
+
+# app/views/books/index.html.erb
+<h1>Liste des livres</h1>
+<%= paginate @books %>
+<% @books.each do |book| %>
+    <p><%= book_link book %></p>
+<% end %>
